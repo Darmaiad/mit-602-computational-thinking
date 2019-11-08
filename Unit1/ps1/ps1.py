@@ -2,7 +2,11 @@
 # 6.00.2x Problem Set 1: Space Cows 
 
 from ps1_partition import get_partitions
-import time
+from time import time
+from os.path import dirname, join
+current_dir = dirname(__file__)
+file_path = join(current_dir, "./ps1_cow_data.txt")
+
 
 #================================
 # Part A: Transporting Space Cows
@@ -165,14 +169,14 @@ def compare_cow_transport_algorithms():
     Does not return anything.
     """
         
-    start = time.time()
+    start = time()
     greedyTrips = greedy_cow_transport(cows, limit)
-    end = time.time()
+    end = time()
     print('Greedy: ', end - start, len(greedyTrips))
     
-    start = time.time()
+    start = time()
     bruteTrips = brute_force_cow_transport(cows, limit)
-    end = time.time()
+    end = time()
     print('Brute: ', end - start, len(bruteTrips))
 
 
@@ -182,12 +186,11 @@ Do not submit this along with any of your answers. Uncomment the last two
 lines to print the result of your problem.
 """
 
-cows = load_cows("ps1_cow_data.txt")
+cows = load_cows(file_path)
+# cows = load_cows("ps1_cow_data.txt")
 limit=20
 # print(cows)
 
 # print(greedy_cow_transport(cows, limit))
 # print(brute_force_cow_transport(cows, limit))
 compare_cow_transport_algorithms()
-
-
