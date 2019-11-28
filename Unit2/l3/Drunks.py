@@ -25,4 +25,10 @@ class ColdDrunk(Drunk):
             (-1.0, 0.0), 
             (1.0, 0.0) 
         ])
+
+class EDrunk(Drunk):
+    def takeStep(self):
+        ang = 2 * math.pi * random.random()
+        length = 0.5 + 0.5 * random.random()
+        return (length * math.sin(ang), length * math.cos(ang))
     
